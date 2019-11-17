@@ -1,24 +1,9 @@
 # ra-vchart
 
-## Project setup
-```
-yarn install
-```
+基于chartJS实现的vue组件库.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## TODD
+* example网站的实现（模仿echart或者v-echarts实现的示例）
+* mixins的实现，需要更加合理（update方法不是万能的）
+* 用户自定义增加和减少数据
+* 针对于每一个图表，增加一些特殊方法
