@@ -1,127 +1,182 @@
 <template>
   <div class="vue-supplier-chart">
     <div style="text-align:center">
-      <p style="color:orange;font-weight:800; font-size:20px;">📈供应链图表工具</p>
+      <p style="color:orange;font-weight:800; font-size:20px;">📈</p>
+      <h1><a href="https://github.com/Rabbitzzc/ra-vchart">Ra-Charts</a></h1>
+      <p class="desc">ChartJs component for Vue.js.</p>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">柱状图</h3>
-      <ra-bar
-        :element-id="'barbarbar'"
-        :cwidth="cwidth"
-        :cheight="cheight"
-        :chart-data="mock.BarMock.datas"
-        :chart-options="mock.BarMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
-      >
-      </ra-bar>
+      <h3 class="chart-title">
+        <a href="#bar">柱状图</a>
+      </h3>
+      <section>
+        <figure class="half">
+          <ra-bar
+            :element-id="'barbarbar'"
+            :cwidth="cwidth"
+            :cheight="cheight"
+            :chart-data="mock.BarMock.datas"
+            :chart-options="mock.BarMock.options"
+            :css-style="{ width: '400px', height: '300px' }"
+          >
+          </ra-bar>
+        </figure>
+        <figure class="half">
+          <ra-bar
+            :element-id="'react-barbarbar'"
+            :cwidth="cwidth"
+            :cheight="cheight"
+            :chart-data="mock.BarReactMock.datas"
+            :chart-options="mock.BarReactMock.options"
+            :css-style="{ width: '400px', height: '300px' }"
+          >
+          </ra-bar>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">动态-柱状图</h3>
-      <ra-bar
-        :element-id="'react-barbarbar'"
-        :cwidth="cwidth"
-        :cheight="cheight"
-        :chart-data="mock.BarReactMock.datas"
-        :chart-options="mock.BarReactMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
-      >
-      </ra-bar>
-    </div>
-    <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">横柱状图(平行柱状图)</h3>
-      <ra-horizontalBar
+      <h3 class="chart-title">
+        <a href="#horizontalbar">横柱状图(平行柱状图)</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-horizontalBar
         :element-id="'horizontalbarhorizontalbar'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.HorizontalBarMock.datas"
         :chart-options="mock.HorizontalBarMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-horizontalBar>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">饼图</h3>
-      <ra-pie
+      <h3 class="chart-title">
+        <a href="#pie">饼图</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-pie
         :element-id="'piepiepie'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.PieMock.datas"
         :chart-options="mock.PieMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-pie>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">气泡图</h3>
-      <ra-bubble
+      <h3 class="chart-title">
+        <a href="bubble">气泡图</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-bubble
         :element-id="'bubblebubble'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.BubbleMock.datas"
         :chart-options="mock.BubbleMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-bubble>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">折线图</h3>
-      <ra-line
+      <h3 class="chart-title">
+        <a href="#line">折线图</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-line
         :element-id="'linelineline'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.LineMock.datas"
         :chart-options="mock.LineMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-line>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">雷达图</h3>
-      <ra-radar
+      <h3 class="chart-title">
+        <a href="#radar">雷达图</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-radar
         :element-id="'radarradarradar'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.RaderMock.datas"
         :chart-options="mock.RaderMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-radar>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">极地图</h3>
+      <h3 class="chart-title">
+        <a href="#scatter">极地图</a>
+      </h3>
+      <section>
+        <figure>
       <ra-scatter
         :element-id="'scatterscatter'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.ScatterMock.datas"
         :chart-options="mock.ScatterMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-scatter>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">区域图</h3>
+      <h3 class="chart-title">
+        <a href="#polararea">区域图</a>
+      </h3>
+      <section>
+        <figure>
       <ra-polar-area
         :element-id="'polarareapolararea'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.PolarAreaMock.datas"
         :chart-options="mock.PolarAreaMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-polar-area>
+        </figure>
+      </section>
     </div>
     <div class="sort-example">
-      <h3 style="text-align:center; font-weight:800;">圆环图</h3>
-      <ra-doughnut
+      <h3 class="chart-title">
+        <a href="#doughnut">圆环图</a>
+      </h3>
+      <section>
+        <figure>
+          <ra-doughnut
         :element-id="'doughnutdoughnut'"
         :cwidth="cwidth"
         :cheight="cheight"
         :chart-data="mock.DoughnutMock.datas"
         :chart-options="mock.DoughnutMock.options"
-        :css-style="{ width: '400px', height: '400px' }"
+        :css-style="{ width: '600px', height: '300px' }"
       >
       </ra-doughnut>
+        </figure>
+      </section>
     </div>
   </div>
 </template>
@@ -164,7 +219,7 @@ export default {
   data() {
     return {
       cwidth: 400,
-      cheight: 400,
+      cheight: 300,
       mock: {
         BarMock,
         BarReactMock,
@@ -237,14 +292,56 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a{
+
+  color:inherit;
+  text-decoration:none;
+}
+h1 {
+  margin-bottom: 1em;
+  font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  color:#2c3e50;
+  font-weight:300;
+
+}
+h3 {
+  text-align: center;
+  font-weight: 400;
+}
 .vue-supplier-chart {
-  .sort-example {
-    width: 700px;
-    padding: 20px 130px;
-    border-radius: 3%;
-    margin: 10px auto;
-    border: 1px solid #eee;
-    box-shadow: 0px 0px 20px 2px #ccc;
+  .chart-title {
+
+  }
+  section {
+    width: 100%;
+    text-align: center;
+    figure {
+      display: inline-block;
+      position: relative;
+      margin: 2em auto;
+      border: 1px solid rgba(0, 0, 0, .1);
+      border-radius:8px;
+      box-shadow:0 0 45px rgba(0, 0, 0, .2);
+      padding:1.5em 2em;
+      min-width: calc(40vw + 4em);
+    }
+    .half {
+      padding: 1em 1.5em;
+      min-width: calc(280px + 3em);
+      &:not(last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+  .desc {
+    margin-bottom:3em;
+    color:#7f8c8d;
   }
 }
 </style>
