@@ -1,7 +1,7 @@
 <template>
   <div class="vue-supplier-chart">
     <div style="text-align:center">
-      <p style="color:orange;font-weight:800; font-size:20px;">📈</p>
+      <!-- <p style="color:orange;font-weight:800; font-size:20px;">📈</p> -->
       <h1><a href="https://github.com/Rabbitzzc/ra-vchart">Ra-Charts</a></h1>
       <p class="desc">ChartJs component for Vue.js.</p>
     </div>
@@ -232,24 +232,23 @@ export default {
         DoughnutMock,
         PolarAreaMock,
       },
+      times: null,
     };
   },
   mounted() {
-    setInterval(() => {
+    this.times = setInterval(() => {
       this.fillBarData();
     }, 5000);
   },
   computed: {},
+  updated() {
+    clearInterval(this.times);
+    this.times = setInterval(() => {
+      this.fillBarData();
+    }, 5000);
+  },
   methods: {
     fillBarData() {
-      // this.mock.BarReactMock.datas.datasets[0].data = [
-      //   this.randomData(),
-      //   this.randomData(),
-      //   this.randomData(),
-      //   this.randomData(),
-      //   this.randomData(),
-      //   this.randomData(),
-      // ];
       this.mock.BarReactMock.datas = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [
