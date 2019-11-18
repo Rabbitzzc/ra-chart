@@ -60,11 +60,6 @@ export default function factory(elementId, type) {
     },
     watch: {
       // options变化
-      chartOptions(vl) {
-        // 当options变化的时候
-        this.$chart.options = Chart.helpers.configMerge(this.$chart.options, vl);
-        this.updateChart();
-      },
       chartData(vl, ol) {
         this.dataHandle(vl, ol);
       },
@@ -82,7 +77,7 @@ export default function factory(elementId, type) {
       // 渲染图表
       renderChart() {
         // 基于 canvas的图表，删除再重建
-        this.chartDestroy();
+        this.destroyChart();
 
         // 获取id
         // const raChart = document.getElementById(this.elementId)
@@ -95,26 +90,31 @@ export default function factory(elementId, type) {
         });
         this.$emit('chart:render');
       },
+
       // clean，清除功能放在一块，定时器等易于扩展
       clean() {
-        this.chartDestroy();
+        this.destroyChart();
         this.$plugins = [];
       },
+
       // 增加插件
-      // addPlugin(plugin) {
-      //   this.$plugins.push(plugin);
-      // },
+      addPlugin(plugin) {
+        this.$plugins.push(plugin);
+      },
+
       // 生成lengend HTML，可实现自定义配置
       generateLegend() {
         return this.$chart && this.$chart.generateLegend();
       },
+
       // 销毁chart
-      chartDestroy() {
+      destroyChart() {
         if (this.$chart) {
           this.$chart.destroy();
           this.$emit('chart:destroy');
         }
       },
+
       // 更新chart
       updateChart() {
         if (this.$chart) {
@@ -122,10 +122,18 @@ export default function factory(elementId, type) {
           this.$emit('chart:update');
         }
       },
+
       dataHandle(vl, ol) {
+        if (!vl || !vl.datasets.length) {
+          this.renderChart();
+          console.warn('数据不存在');
+          return;
+        }
+
         if (ol) {
           const chart = this.$chart;
           // 比较dataset label
+
           const vlsetLabels = vl.datasets.map(dataset => dataset.label);
           const olsetLabels = ol.datasets.map(dataset => dataset.label);
 
@@ -170,6 +178,53 @@ export default function factory(elementId, type) {
         } else {
           this.renderChart();
         }
+      },
+
+      // 动态数据，push shift pop
+      addData(label, data) {
+        this.$chart.data.labels.push(label);
+        this.$chart.data.datasets.forEach((dataset, i) => {
+          dataset.data.push(data[i]);
+        });
+        this.updateChart();
+      },
+
+      removeData() {
+        this.$chart.data.labels.pop();
+        this.$chart.data.datasets.forEach((dataset) => {
+          dataset.data.pop();
+        });
+        this.updateChart();
+      },
+
+      shiftData() {
+        this.$chart.data.labels.shift();
+        this.$chart.data.datasets.forEach((dataset) => {
+          dataset.data.shift();
+        });
+        this.updateChart();
+      },
+
+      // 塞数据|取出数据
+      stuffData(label, data) {
+        this.$chart.data.labels.shift();
+        this.$chart.data.labels.push(label);
+        this.$chart.data.datasets.forEach((dataset, i) => {
+          dataset.data.push(data[i]);
+          dataset.data.shift();
+        });
+        this.updateChart();
+      },
+
+      // 更新配置，对于options，vue并不能监听到某个属性的变化
+      // options 表示配置，asnew 表示是否为新对象，还是合并option
+      optionsHandle(options, asnew) {
+        if (asnew) {
+          this.$chart.options = options;
+        } else {
+          this.$chart.options = Chart.helpers.configMerge(this.$chart.options, options);
+        }
+        this.updateChart();
       },
     },
     beforeDestroy() {

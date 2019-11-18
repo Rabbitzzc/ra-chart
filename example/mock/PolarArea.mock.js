@@ -1,24 +1,15 @@
 export default {
   datas: {
-    labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+    labels: ['写代码', '看电影', '睡觉', '学习', '跑步', '游泳', '陪爱人'],
     datasets: [
       {
-        label: 'My First dataset',
-        backgroundColor: 'rgba(179,181,198,0.2)',
+        label: '区域图',
+        backgroundColor: ['#f03434', '#29f1c3', '#00b5cc', '#67809f', '#f2784b', '#e9d460', '#9a12b3'],
         pointBackgroundColor: 'rgba(179,181,198,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(179,181,198,1)',
         data: [65, 59, 90, 81, 56, 55, 40],
-      },
-      {
-        label: 'My Second dataset',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        pointBackgroundColor: 'rgba(255,99,132,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(255,99,132,1)',
-        data: [28, 48, 40, 19, 96, 27, 100],
       },
     ],
   },
