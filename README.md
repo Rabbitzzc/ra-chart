@@ -1,6 +1,6 @@
 <div align="center">
     <img src="./public/less-red.png" width="200px">
-    <h6 style="color:#ED6B64">ra-vchart: chartJs 的 Vue.js 组件。</h6>
+    <h6 style="color:#ED6B64">ra-chart: chartJs 的 Vue.js 组件。</h6>
     <p style="color:#7f8c8d; font-size:14px;">基于<a src="https://www.chartjs.org/"> chart.js-v2.9.3 </a>开发，依赖<a src="https://vuejs.org/"> Vue.js-v2.6.10 </a>。</p>
 </div>
 
